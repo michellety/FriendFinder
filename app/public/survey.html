@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <title>Survey Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Survey Page</h1>
+        <form>
+            <div class="form-group">
+                <label>Enter your name</label>
+                <input id="name" type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label>Add a photo</label>
+            <input id="photo" type="text" class="form-control" placeholder="Photo">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 1</label>
+                <select class="form-control" id="qOne">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 2</label>
+                <select class="form-control" id="qTwo">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 3</label>
+                <select class="form-control" id="qThree">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 4</label>
+                <select class="form-control" id="qFour">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 5</label>
+                <select class="form-control" id="qFive">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+        </form>
+        <a id="submit" class="btn btn-primary btn-lg" href="#" role="button">Submit Survey</a>
+    </div>
+
+
+    <script>
+        $("#submit").on("click", function () {
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#qOne").val(),
+                    $("#qTwo").val(),
+                    $("#qThree").val(),
+                    $("#qFour").val(),
+                    $("#qFive").val(),
+                ]
+            }
+            console.log(userData);
+            $.post("/api/friends", userData, function (data) {
+                console.log("data", data);
+            })
+            
+
+
+        })
+
+
+
+    
+    </script>
+</body>
+
+</html>
