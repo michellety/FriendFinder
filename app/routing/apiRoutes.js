@@ -57,11 +57,11 @@ module.exports = function (app) {
         var match = {};
         match = friendData[bf];
         //response with the index of the best match
-        
+
         //add user to the friendData array
         friendData.push(newUser);
         console.log("user data saved");
-    res.json(match);
+        res.json(match);
     })
 
 }
