@@ -24,13 +24,15 @@
             </div>
             <div class="form-group">
                 <label>Add a photo</label>
-            <input id="photo" type="text" class="form-control" placeholder="Photo">
+                <input id="photo" type="text" class="form-control" placeholder="Photo">
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Question 1</label>
+                <br>
+                <label for="exampleFormControlSelect1">You enjoy being outdoors. (1 agree, 3 neutral, 5 agree)</label>
                 <select class="form-control" id="qOne">
-                    <option>1</option>
+                    <option>1 </option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -40,8 +42,11 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Question 2</label>
+                <br>
+                <label for="exampleFormControlSelect1">You like trying new restaurants. (1 agree, 3 neutral, 5
+                    agree)</label>
                 <select class="form-control" id="qTwo">
-                    <option>1</option>
+                    <option>1 </option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -51,8 +56,11 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Question 3</label>
+                <br>
+                <label for="exampleFormControlSelect1">You prefer dogs as the pet of choice. (1 agree, 3 neutral, 5
+                    agree)</label>
                 <select class="form-control" id="qThree">
-                    <option>1</option>
+                    <option>1 </option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -62,8 +70,10 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Question 4</label>
+                <br>
+                <label for="exampleFormControlSelect1">Recycling is unnecessary. (1 agree, 3 neutral, 5 agree)</label>
                 <select class="form-control" id="qFour">
-                    <option>1</option>
+                    <option>1 </option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -73,8 +83,76 @@
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Question 5</label>
+                <br>
+                <label for="exampleFormControlSelect1">You are easily entertained. (1 agree, 3 neutral, 5 agree)</label>
                 <select class="form-control" id="qFive">
-                    <option>1</option>
+                    <option>1 </option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 6</label>
+                <br>
+                <label for="exampleFormControlSelect1">You commit to your plans. (1 agree, 3 neutral, 5 agree)</label>
+                <select class="form-control" id="qSix">
+                    <option>1 </option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 7</label>
+                <br>
+                <label for="exampleFormControlSelect1">You enjoy live music. (1 agree, 3 neutral, 5 agree)</label>
+                <select class="form-control" id="qSeven">
+                    <option>1 </option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 8</label>
+                <br>
+                <label for="exampleFormControlSelect1">You are motivated to get out of bed in the morning. (1 agree, 3
+                    neutral, 5 agree)</label>
+                <select class="form-control" id="qEight">
+                    <option>1 </option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 9</label>
+                <br>
+                <label for="exampleFormControlSelect1">You have multiple hobbies. (1 agree, 3 neutral, 5 agree)</label>
+                <select class="form-control" id="qNine">
+                    <option>1 </option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Question 10</label>
+                <br>
+                <label for="exampleFormControlSelect1">Traveling is scary. (1 agree, 3 neutral, 5 agree)</label>
+                <select class="form-control" id="qTen">
+                    <option>1 </option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
@@ -88,7 +166,9 @@
 
 
     <script>
-        $("#submit").on("click", function () {
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
             var userData = {
                 name: $("#name").val(),
                 photo: $("#photo").val(),
@@ -98,20 +178,21 @@
                     $("#qThree").val(),
                     $("#qFour").val(),
                     $("#qFive").val(),
+                    $("#qSix").val(),
+                    $("#qSeven").val(),
+                    $("#qEight").val(),
+                    $("#qNine").val(),
+                    $("#qTen").val()
                 ]
-            }
+            };
             console.log(userData);
-            $.post("/api/friends", userData, function (data) {
-                console.log("data", data);
-            })
-            
-
-
+            $.post("/api/friends", userData)
+                .then(function (data) {
+                    console.log("user data", data);
+                    alert("Your match is..");
+                })
         })
 
-
-
-    
     </script>
 </body>
 
