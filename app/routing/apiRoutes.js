@@ -57,7 +57,7 @@ module.exports = function (app) {
         var match = {};
         match = friendData[bf];
         //response with the index of the best match
-
+        console.log("match object", match);
         //add user to the friendData array
         friendData.push(newUser);
         console.log("user data saved");

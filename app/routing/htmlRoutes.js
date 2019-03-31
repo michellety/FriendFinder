@@ -1,7 +1,7 @@
 //two routes
 //include the path package to get the correct file path for the html
 var path = require("path");
-var express = require("express");
+
 
 //allowing server to have access to this function
 module.exports = function(app) {
@@ -12,7 +12,7 @@ app.get("/survey", function(req, res) {
   });
 
 //default, displays the home page at home.html
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
