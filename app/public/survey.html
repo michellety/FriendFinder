@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/app/public/css/style.css">
+    <!-- Css -->
+    <!-- <link rel="stylesheet" type="text/css" href="/app/public/css/style.css"> -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -22,9 +23,9 @@
     <title>Survey Page</title>
 </head>
 
-<body>
+<body class="bg-warning mb-5">
     <div class="container">
-        <h1>Survey Page</h1>
+        <h1 class="text-center mt-5">Survey Page</h1>
         <form>
             <div class="form-group">
                 <label>Enter your name</label>
@@ -225,7 +226,7 @@
                     console.log("user data", data);
                     $("#results").modal("toggle");
                     $("#matchName").text(data.name);
-                    $("#matchPhoto").attr("src", data.photo);
+                    $("#matchPhoto").html("<img src=", data.photo, "alt='match photo'");
 
                 })
         })
